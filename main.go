@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"ena/parser"
 )
 
 func main() {
-	fmt.Println("Hello World")
+	p := parser.InitParser("test.yaml")
+	p.ParseFolders()
 }

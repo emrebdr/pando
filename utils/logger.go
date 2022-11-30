@@ -13,7 +13,7 @@ const (
 	INFO LogLevel = iota
 	ERROR
 	DEBUG
-	WARNNING
+	WARNING
 )
 
 type Logger struct {
@@ -50,11 +50,22 @@ func (l *Logger) Log() {
 	case DEBUG:
 		message := fmt.Sprintf("[DEBUG] [%s] %s - %s", getTime(), l.Message, l.Description)
 		color.White(message)
-	case WARNNING:
+	case WARNING:
 		message := fmt.Sprintf("[INFO] [%s] %s - %s %s", getTime(), l.Message, l.Description, getError(l.Error, "warning"))
 		color.Yellow(message)
 	default:
 		message := fmt.Sprintf("[INFO] [%s] %s - %s", getTime(), l.Message, l.Description)
 		color.Blue(message)
 	}
+}
+
+func LogFatal(message string, err error) {
+	logger := Logger{
+		LogLevel:    ERROR,
+		Message:     message,
+		Description: "Fatal error",
+		Error:       err,
+	}
+
+	logger.Log()
 }
