@@ -5,6 +5,7 @@ type ConfigModel struct {
 	Language    string       `yaml:"language"`
 	Name        string       `yaml:"name"`
 	Description string       `yaml:"description"`
+	Destination string       `yaml:"destination"`
 	Maintainers []Maintainer `yaml:"maintainers,omitempty"`
 	Struct      Struct       `yaml:"struct"`
 }
@@ -16,15 +17,15 @@ type Maintainer struct {
 }
 
 type Struct struct {
-	Folders []Folder `yaml:"folders"`
-	Files   []File   `yaml:"files"`
+	Folders []Folder `yaml:"folders,omitempty"`
+	Files   []File   `yaml:"files,omitempty"`
 }
 
 type Folder struct {
 	Name        string   `yaml:"name"`
 	Description string   `yaml:"description,omitempty"`
 	Files       []File   `yaml:"files"`
-	Folders     []Folder `yaml:"folders,omitempty"`
+	Folder      []Folder `yaml:"folder,omitempty"`
 }
 
 type File struct {

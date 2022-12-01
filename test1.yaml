@@ -1,0 +1,68 @@
+version: "1.0.0"
+language: "golang"
+name: "go_template"
+description: "A template for Go projects"
+destination: "../test"
+maintainers:
+  - name: "John Doe"
+    email: "john@doe.com"
+    url: "https://john.doe.com"
+struct:
+  folders:
+    - name: "cmd"
+      description: "Command line tools"
+      files:
+        - name: "main.go"
+          description: "Main entry point"
+          content_type: "text"
+          content: |
+            package main
+
+            import "fmt"
+
+            func main() {
+                fmt.Println("Hello World")
+            }
+      folder:
+        - name: "internal"
+          description: "Internal packages"
+          files:
+            - name: "internal.go"
+              description: "Internal package"
+              content_type: "file"
+              content: "cmd/main.go"
+          folder:
+            - name: "models"
+              description: "Models for structs"
+              files:
+                - name: "models.go"
+                  description: "Models for structs"
+                  content_type: "url"
+                  content: "https://raw.githubusercontent.com/emrebdr/VanGogh/main/src/main/java/emreb/Models/LogLevel.java"
+        - name: "Nested"
+          description: "Nested folder"
+          files:
+            - name: "nested.go"
+              description: "Nested file"
+              content_type: "text"
+              content: "nested"
+    - name: "test"
+      description: "Test folder"
+      files:
+        - name: "test.go"
+          description: "Test file"
+          content_type: "text"
+          content: test
+  files:
+    - name: "main.go"
+      description: "Main entry point"
+      content_type: "text"
+      content: |
+        package main
+
+        import "fmt"
+
+        func main() {
+            fmt.Println("Hello World")
+        }
+  # template: will be added in a future release

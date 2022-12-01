@@ -2,6 +2,7 @@ version: "1.0.0"
 language: "golang"
 name: "go_template"
 description: "A template for Go projects"
+destination: "../test"
 maintainers:
   - name: "John Doe"
     email: "john@doe.com"
@@ -14,15 +15,15 @@ struct:
         - name: "main.go"
           description: "Main entry point"
           content_type: "text"
-          content: |
+          content: | 
             package main
 
             import "fmt"
 
             func main() {
-              fmt.Println("Hello World!")
+                fmt.Println("Hello World")
             }
-      folders:
+      folder:
         - name: "internal"
           description: "Internal packages"
           files:
@@ -33,7 +34,7 @@ struct:
             - name: "models.go"
               description: "Models for structs"
               content_type: "url"
-              content: "https://raw.githubusercontent.com/alexellis/arkade/master/cmd/apps/models.go"
+              content: "https://raw.githubusercontent.com/emrebdr/VanGogh/main/src/main/java/emreb/Models/LogLevel.java"
   files:
     - name: "main.go"
       description: "Main entry point"
