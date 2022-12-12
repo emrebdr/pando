@@ -132,5 +132,8 @@ func (p *Parser) createFilesTemplateSturct() {
 }
 
 func (p *Parser) setDestinationAddress(address string) {
-	p.config.Destination = address
+	if p.config.Destination == "" {
+		p.config.Destination = address
+		return
+	}
 }
