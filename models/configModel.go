@@ -5,7 +5,7 @@ type ConfigModel struct {
 	Language    string       `yaml:"language"`
 	Name        string       `yaml:"name"`
 	Description string       `yaml:"description"`
-	Destination string       `yaml:"destination"`
+	Destination string       `yaml:"destination,omitempty"`
 	Maintainers []Maintainer `yaml:"maintainers,omitempty"`
 	Struct      Struct       `yaml:"struct"`
 }

@@ -2,10 +2,25 @@ package main
 
 import (
 	"ena/parser"
-	"fmt"
+	"os"
 )
 
 func main() {
-	parser.Parse("test1.yaml")
-	fmt.Println("Done")
+	args := os.Args[1:]
+	var config_path string
+	var destination string = "."
+	for i, arg := range args {
+		if arg == "-c" {
+			config_path = args[i+1]
+		}
+		if arg == "-d" {
+			destination = args[i+1]
+		}
+	}
+
+	if config_path == "" {
+		panic("Config file is not specified")
+	}
+
+	parser.Parse(config_path, destination)
 }

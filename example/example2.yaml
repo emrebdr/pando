@@ -65,4 +65,3 @@ struct:
         func main() {
             fmt.Println("Hello World")
         }
-  # template: will be added in a future release

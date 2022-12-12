@@ -30,9 +30,10 @@ func (p *Parser) readConfigFile(filename string) {
 	p.config = config
 }
 
-func Parse(filename string) {
+func Parse(filename string, destination string) {
 	p := &Parser{}
 	p.readConfigFile(filename)
+	p.setDestinationAddress(destination)
 	p.parse()
 }
 
@@ -128,4 +129,8 @@ func (p *Parser) createFolderTemplateStruct() {
 
 func (p *Parser) createFilesTemplateSturct() {
 	p.createFiles(p.config.Struct.Files, p.config.Destination)
+}
+
+func (p *Parser) setDestinationAddress(address string) {
+	p.config.Destination = address
 }

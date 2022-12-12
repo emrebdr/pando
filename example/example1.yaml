@@ -40,4 +40,3 @@ struct:
       description: "Main entry point"
       content_type: "file"
       content: "main.go"
-  # template: will be added in a future release
