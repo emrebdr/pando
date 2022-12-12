@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ena/parser"
 	"os"
+	"pando/parser"
 )
 
 func main() {

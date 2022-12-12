@@ -1,11 +1,11 @@
 package parser
 
 import (
-	"ena/models"
-	"ena/utils"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"pando/models"
+	"pando/utils"
 
 	"gopkg.in/yaml.v3"
 )
@@ -39,7 +39,7 @@ func Parse(filename string, destination string) {
 
 func (p *Parser) parse() {
 	p.createFolderTemplateStruct()
-	p.createFilesTemplateSturct()
+	p.createFilesTemplateStruct()
 }
 
 func (p *Parser) createStruct(folders []models.Folder, path string) {
@@ -74,7 +74,7 @@ func (p *Parser) createFiles(files []models.File, path string) {
 }
 
 func (p *Parser) writeToFileContent(file *os.File, content_type string, content string) {
-	data := p.getConent(content_type, content)
+	data := p.getContent(content_type, content)
 
 	_, err := file.Write([]byte(data))
 	if err != nil {
@@ -82,7 +82,7 @@ func (p *Parser) writeToFileContent(file *os.File, content_type string, content 
 	}
 }
 
-func (p *Parser) getConent(content_type string, content string) string {
+func (p *Parser) getContent(content_type string, content string) string {
 	switch content_type {
 	case "text":
 		return content
@@ -127,7 +127,7 @@ func (p *Parser) createFolderTemplateStruct() {
 	p.createStruct(p.config.Struct.Folders, p.config.Destination)
 }
 
-func (p *Parser) createFilesTemplateSturct() {
+func (p *Parser) createFilesTemplateStruct() {
 	p.createFiles(p.config.Struct.Files, p.config.Destination)
 }
 
